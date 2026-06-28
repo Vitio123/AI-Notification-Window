@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>overlay</title>
+  <link rel="stylesheet" href="overlay.css" />
+</head>
+<body>
+  <div id="stage">
+    <div id="pill" class="state-hidden" role="button" tabindex="0" aria-label="Notificacion de Claude">
+      <!-- icono Claude (sunburst oficial, animado) inyectado por JS -->
+      <div class="icon" id="icon"></div>
+
+      <div class="text">
+        <div class="project" id="project">terminal</div>
+        <div class="ticker"><span id="message">…</span></div>
+      </div>
+
+      <!-- boton cerrar: solo visible al expandir (hover). Solo cierra, no abre terminal. -->
+      <button id="close" class="close" type="button" aria-label="Cerrar">×</button>
+    </div>
+  </div>
+
+  <audio id="snd" preload="auto"></audio>
+  <script src="overlay.js"></script>
+</body>
+</html>

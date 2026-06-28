@@ -1,0 +1,40 @@
+{
+  "name": "claude-notificator",
+  "version": "1.0.0",
+  "description": "Notificador de terminal para Claude Code (Windows). Overlay animado tipo Apple que avisa cuando Claude pide atencion y te lleva a la terminal.",
+  "main": "src/main.js",
+  "author": "VITIO",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win --x64"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.vitio.claudenotificator",
+    "productName": "Claude Notificator",
+    "files": [
+      "src/**/*",
+      "assets/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "assets/claude-color.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "Claude Notificator"
+    }
+  }
+}

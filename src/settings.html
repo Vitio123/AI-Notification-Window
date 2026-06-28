@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Configuracion</title>
+  <link rel="stylesheet" href="settings.css" />
+</head>
+<body>
+  <header>
+    <div class="logo"></div>
+    <div>
+      <h1>Claude Notificator</h1>
+      <p data-i18n="subtitle">Notificador de terminal en segundo plano</p>
+    </div>
+  </header>
+
+  <section>
+    <label class="title" data-i18n="language">Idioma</label>
+    <div class="row">
+      <select id="language">
+        <option value="es">Espanol</option>
+        <option value="en">English</option>
+        <option value="pt">Portugues</option>
+        <option value="fr">Francais</option>
+        <option value="de">Deutsch</option>
+      </select>
+    </div>
+  </section>
+
+  <section>
+    <label class="title" data-i18n="position">Posicion del aviso</label>
+    <div class="grid" id="posGrid">
+      <button class="cell" data-pos="top-left">↖</button>
+      <button class="cell" data-pos="top-center">↑</button>
+      <button class="cell" data-pos="top-right">↗</button>
+      <button class="cell" data-pos="bottom-left">↙</button>
+      <button class="cell" data-pos="bottom-center">↓</button>
+      <button class="cell" data-pos="bottom-right">↘</button>
+    </div>
+  </section>
+
+  <section>
+    <label class="title" data-i18n="appearance">Apariencia</label>
+    <div class="row">
+      <span class="lbl" data-i18n="iconColor">Color del icono Claude</span>
+      <input type="color" id="iconColor" />
+    </div>
+    <div class="row">
+      <span class="lbl" data-i18n="animIn">Animacion de entrada</span>
+      <select id="animIn"></select>
+    </div>
+    <div class="row">
+      <span class="lbl" data-i18n="animOut">Animacion de salida</span>
+      <select id="animOut"></select>
+    </div>
+  </section>
+
+  <section>
+    <label class="title" data-i18n="sound">Sonido de notificacion</label>
+    <div class="row">
+      <input type="text" id="soundPath" data-i18n-ph="noSound" placeholder="Sin sonido (wav o mp3)" readonly />
+      <button id="pickSound" class="btn" data-i18n="choose">Elegir…</button>
+      <button id="clearSound" class="btn ghost" data-i18n="remove">Quitar</button>
+    </div>
+    <label class="check"><input type="checkbox" id="soundEnabled" /> <span data-i18n="soundEnable">Activar sonido propio</span></label>
+  </section>
+
+  <section>
+    <label class="title" data-i18n="behavior">Comportamiento</label>
+    <label class="check"><input type="checkbox" id="launchAtStartup" /> <span data-i18n="startup">Iniciar con Windows</span></label>
+    <div class="row">
+      <span class="lbl" data-i18n="autoHide">Ocultar aviso tras</span>
+      <input type="number" id="autoHideVal" min="0" step="1" />
+      <select id="autoHideUnit">
+        <option value="s" data-i18n="seconds">segundos</option>
+        <option value="ms">ms</option>
+      </select>
+      <span class="lbl" data-i18n="never">(0 = nunca)</span>
+    </div>
+    <div class="row">
+      <span class="lbl" data-i18n="port">Puerto local</span>
+      <input type="number" id="port" min="1024" max="65535" />
+    </div>
+    <p class="hint" data-i18n="portHint">No suele tocarse. Dejalo en 4317. Solo cambialo si ese puerto esta ocupado; el hook de Claude se actualiza solo al guardar.</p>
+  </section>
+
+  <section>
+    <div class="row between">
+      <label class="title" style="margin:0" data-i18n="terminals">Terminales con Claude Code</label>
+      <button id="refreshTerms" class="btn ghost small" data-i18n="search">Buscar</button>
+    </div>
+    <div id="termList" class="termlist"><span class="muted" data-i18n="searchHint">Pulsa "Buscar" para detectar terminales.</span></div>
+  </section>
+
+  <footer>
+    <button id="test" class="btn ghost" data-i18n="testBtn">Probar</button>
+    <button id="save" class="btn primary" data-i18n="saveBtn">Guardar</button>
+  </footer>
+
+  <div id="toast"></div>
+  <script src="settings.js"></script>
+</body>
+</html>

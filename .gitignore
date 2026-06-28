@@ -1,0 +1,11 @@
+node_modules/
+dist/
+out/
+*.log
+npm-debug.log*
+
+# Local / OS
+.claude/
+.DS_Store
+Thumbs.db
+desktop.ini
