@@ -43,6 +43,14 @@ npm run dist
 
 Output goes to `dist/` (electron-builder, NSIS installer).
 
+> **Heads-up:** electron-builder needs to extract `winCodeSign`, which contains
+> macOS symlinks. On Windows that requires **Developer Mode** (Settings → Privacy
+> & security → For developers → *Developer Mode ON*) or an elevated shell. Without
+> it you'll see `Cannot create symbolic link ... privilege is not held`.
+>
+> A **portable** build (no installer, no signing) is produced under
+> `dist/ClaudeNotificator/` — just run `Claude Notificator.exe`.
+
 ## Hook setup (Claude Code)
 
 In `~/.claude/settings.json`, the `Notification` and `Stop` hooks call:

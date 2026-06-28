@@ -53,8 +53,8 @@ html, body {
   transform: scale(0);
   opacity: 0;
   transition:
-    width 0.55s var(--spring),
-    height 0.4s var(--spring),
+    width 0.45s var(--smooth),
+    height 0.4s var(--smooth),
     transform 0.5s var(--spring),
     opacity 0.35s var(--smooth),
     box-shadow 0.4s var(--smooth);
@@ -78,7 +78,7 @@ html, body {
   width: 340px;
   height: auto;
   min-height: var(--size);
-  transform: scale(1.03);
+  transform: scale(1); /* sin scale: evita reflow/jitter subpixel del texto al expandir */
   opacity: 1; /* sin esto cae al base opacity:0 -> el pill se volvia invisible al hacer hover */
   box-shadow:
     0 16px 40px rgba(0, 0, 0, 0.34),
